@@ -15,7 +15,7 @@ function renderTrip(data) {
   $("#days").innerHTML = cities.map(city => `<section id="city-${slug(city)}"><h2 style="margin:24px 0 12px">${esc(city)}</h2><div class="days">${data.days.filter(d=>d.city===city).map(d=>`
     <article class="day-card"><div class="day-top"><div><div class="day-date">${esc(d.dateLabel)}</div><h3>${esc(d.title)}</h3></div><span class="tag">${esc(d.status || "Reiseplan")}</span></div>
     <p>${esc(d.description)}</p>
-    <div class="attraction-list">${d.items.map(item=>`<article class="attraction">${item.image ? `<a class="attraction-image-link" href="${esc(item.infoUrl || item.url || mapUrl(item.place || item.title,city))}" target="_blank" rel="noopener"><img class="attraction-image" src="${esc(item.image)}" alt="${esc(item.title)}" loading="lazy" onerror="this.closest('.attraction-image-link').hidden=true"></a>` : ""}<div class="attraction-copy"><strong>${esc(item.time ? item.time+" · " : "")}${esc(item.title)}</strong>${item.note ? `<p>${esc(item.note)}</p>`:""}<div class="attraction-links"><a class="map-link" href="${esc(item.url || mapUrl(item.place || item.title,city))}" target="_blank" rel="noopener">↗ Google Maps</a>${item.infoUrl ? `<a class="map-link" href="${esc(item.infoUrl)}" target="_blank" rel="noopener">Offizielle Infos ↗</a>`:""}</div></div></article>`).join("")}</div>
+    ${d.items.map(item=>`<p><strong>${esc(item.time ? item.time+" · " : "")}${esc(item.title)}</strong>${item.note ? " — "+esc(item.note):""}<br><a class="map-link" href="${esc(item.url || mapUrl(item.place || item.title,city))}" target="_blank" rel="noopener">↗ In Google Maps öffnen</a></p>`).join("")}
   </article>`).join("")}</div></section>`).join("");
   $("#login-panel").hidden = true; $("#trip-panel").hidden = false;
 }
