@@ -1,11 +1,59 @@
-✦
-FAMILIENREISE · OKTOBER 2026
-Unsere Asienreise
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123c3a">
+  <title>Unsere Asienreise 2026</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand-mark">✦</div>
+    <div><div class="eyebrow">FAMILIENREISE · OKTOBER 2026</div><h1>Unsere Asienreise</h1></div>
+  </header>
+  <main>
+    <section id="login-panel" class="panel login-panel">
+      <p class="eyebrow">PRIVATER FAMILIENBEREICH</p>
+      <h2>Schön, dass du da bist.</h2>
+      <p>Gib das gemeinsame Familienpasswort ein, um Reiseplan und Kommentare zu sehen.</p>
+      <form id="login-form">
+        <label for="password">Gemeinsames Passwort</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required>
+        <button type="submit">Reiseplan öffnen</button>
+        <p id="login-error" class="error" role="status"></p>
+      </form>
+    </section>
 
-PRIVATER FAMILIENBEREICH
-
-Schön, dass du da bist.
-
-Gib das gemeinsame Familienpasswort ein, um Reiseplan und Kommentare zu sehen.
-
-Gemeinsames Passwort   Reiseplan öffnen
+    <section id="trip-panel" hidden>
+      <div class="welcome-row">
+        <div><p class="eyebrow">18.–31. OKTOBER 2026</p><h2>Die Reise auf einen Blick</h2></div>
+        <button id="logout-button" class="button-secondary" type="button">Abmelden</button>
+      </div>
+      <p class="intro">Unser gemeinsamer Platz für Tagespläne, Orte, Restaurantideen und Familienkommentare. Links öffnen die jeweilige Suche in Google Maps.</p>
+      <nav id="city-nav" class="city-nav" aria-label="Städte"></nav>
+      <div id="days" class="days"></div>
+      <section class="panel comments-panel">
+        <p class="eyebrow">FAMILIENNOTIZEN</p>
+        <h2>Ideen, Fragen & Kommentare</h2>
+        <p>Alle mit dem Familienpasswort können hier ohne eigenes Konto kommentieren.</p>
+        <form id="comment-form" class="comment-form">
+          <div class="form-grid">
+            <div><label for="comment-name">Dein Name</label><input id="comment-name" maxlength="60" required placeholder="z. B. Mama"></div>
+            <div><label for="comment-city">Zu welchem Ort?</label>
+              <select id="comment-city"><option>Allgemein</option><option>Singapur</option><option>Bangkok</option><option>Chiang Mai</option></select>
+            </div>
+          </div>
+          <label for="comment-text">Kommentar</label>
+          <textarea id="comment-text" rows="3" maxlength="1200" required placeholder="Restaurantidee, Frage oder Änderungsvorschlag …"></textarea>
+          <button type="submit">Kommentar veröffentlichen</button>
+          <p id="comment-status" class="muted" role="status"></p>
+        </form>
+        <div id="comments" class="comments-list"></div>
+      </section>
+      <footer><span>Privater Familienbereich · Asien 2026</span><span>Bitte keine sensiblen Daten posten.</span></footer>
+    </section>
+  </main>
+  <script src="/app.js" defer></script>
+</body>
+</html>
