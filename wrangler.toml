@@ -5,5 +5,5 @@ compatibility_date = "2026-09-15"
 [[d1_databases]]
 binding = "DB"
 database_name = "familienreise-comments"
-database_id = "REPLACE_WITH_DATABASE_ID"
-migrations_dir = "migrations"
+database_id = "8492a8e0-c8cb-42f2-a840-45134366c771"
+migrations_dir = "migration"
