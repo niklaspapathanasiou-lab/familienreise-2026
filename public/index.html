@@ -4,14 +4,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#123c3a">
+  <meta name="description" content="Unser gemeinsamer Reiseplan für Singapur, Bangkok und Chiang Mai im Oktober 2026.">
   <title>Unsere Asienreise 2026</title>
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
   <header class="site-header">
-    <div class="brand-mark">✦</div>
-    <div><div class="eyebrow">FAMILIENREISE · OKTOBER 2026</div><h1>Unsere Asienreise</h1></div>
+    <div class="brand-mark" aria-hidden="true">✦</div>
+    <div>
+      <div class="eyebrow">FAMILIENREISE · OKTOBER 2026</div>
+      <h1>Unsere Asienreise</h1>
+    </div>
   </header>
+
   <main>
     <section id="login-panel" class="panel login-panel">
       <p class="eyebrow">PRIVATER FAMILIENBEREICH</p>
@@ -21,39 +26,61 @@
         <label for="password">Gemeinsames Passwort</label>
         <input id="password" name="password" type="password" autocomplete="current-password" required>
         <button type="submit">Reiseplan öffnen</button>
-        <p id="login-error" class="error" role="status"></p>
+        <p id="login-error" class="error" role="status" aria-live="polite"></p>
       </form>
     </section>
 
     <section id="trip-panel" hidden>
       <div class="welcome-row">
-        <div><p class="eyebrow">18.–31. OKTOBER 2026</p><h2>Die Reise auf einen Blick</h2></div>
+        <div>
+          <p class="eyebrow">18.–31. OKTOBER 2026</p>
+          <h2>Die Reise auf einen Blick</h2>
+        </div>
         <button id="logout-button" class="button-secondary" type="button">Abmelden</button>
       </div>
+
       <p class="intro">Unser gemeinsamer Platz für Tagespläne, Orte, Restaurantideen und Familienkommentare. Links öffnen die jeweilige Suche in Google Maps.</p>
       <nav id="city-nav" class="city-nav" aria-label="Städte"></nav>
+
+      <!-- app.js rendert hier die Tageskarten und fügt am Ende jedes Tages
+           ein Kommentarformular für genau diesen Tag ein. -->
       <div id="days" class="days"></div>
-      <section class="panel comments-panel">
-        <p class="eyebrow">FAMILIENNOTIZEN</p>
-        <h2>Ideen, Fragen & Kommentare</h2>
-        <p>Alle mit dem Familienpasswort können hier ohne eigenes Konto kommentieren.</p>
+
+      <section class="panel comments-panel" id="general-comments">
+        <p class="eyebrow">ALLGEMEINE FAMILIENNOTIZEN</p>
+        <h2>Ideen & Fragen zur ganzen Reise</h2>
+        <p>Für Vorschläge, die keinem einzelnen Tag zugeordnet sind.</p>
         <form id="comment-form" class="comment-form">
           <div class="form-grid">
-            <div><label for="comment-name">Dein Name</label><input id="comment-name" maxlength="60" required placeholder="z. B. Mama"></div>
-            <div><label for="comment-city">Zu welchem Ort?</label>
-              <select id="comment-city"><option>Allgemein</option><option>Singapur</option><option>Bangkok</option><option>Chiang Mai</option></select>
+            <div>
+              <label for="comment-name">Dein Name</label>
+              <input id="comment-name" maxlength="60" required placeholder="z. B. Mama">
+            </div>
+            <div>
+              <label for="comment-city">Zu welchem Ort?</label>
+              <select id="comment-city">
+                <option>Allgemein</option>
+                <option>Singapur</option>
+                <option>Bangkok</option>
+                <option>Chiang Mai</option>
+              </select>
             </div>
           </div>
           <label for="comment-text">Kommentar</label>
           <textarea id="comment-text" rows="3" maxlength="1200" required placeholder="Restaurantidee, Frage oder Änderungsvorschlag …"></textarea>
           <button type="submit">Kommentar veröffentlichen</button>
-          <p id="comment-status" class="muted" role="status"></p>
+          <p id="comment-status" class="muted" role="status" aria-live="polite"></p>
         </form>
         <div id="comments" class="comments-list"></div>
       </section>
-      <footer><span>Privater Familienbereich · Asien 2026</span><span>Bitte keine sensiblen Daten posten.</span></footer>
+
+      <footer>
+        <span>Privater Familienbereich · Asien 2026</span>
+        <span>Bitte keine sensiblen Daten posten.</span>
+      </footer>
     </section>
   </main>
+
   <script src="/app.js" defer></script>
 </body>
 </html>
