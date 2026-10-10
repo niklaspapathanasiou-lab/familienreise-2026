@@ -2,7 +2,7 @@ import { json, requireSession } from "../_shared.js";
 
 const days = [
  {city:"Singapur",dateLabel:"So., 18. Oktober 2026",title:"Ankunft, Hotel & Orchard Road",status:"Ankunftstag · flexibel",description:"Nach Ankunft und Check-in entspannt starten. Das YOTEL liegt an der Orchard Road; je nach Ankunftszeit nur die Umgebung erkunden. Abendessen-Budget als Orientierung: 30–60 € pro Person.",items:[
-  {time:"Nach Ankunft",title:"YOTEL Singapore Orchard Road",place:"YOTEL Singapore Orchard Road",note:"Hotel und Ausgangspunkt. Transferzeit abhängig von der tatsächlichen Ankunft.",infoUrl:"https://www.yotel.com/en/hotels/yotel-singapore-orchard-road"},
+  {time:"Nach Ankunft",title:"YOTEL Singapore Orchard Road",place:"YOTEL Singapore Orchard Road",note:"Hotel und Ausgangspunkt. Transferzeit abhängig von der tatsächlichen Ankunft.",infoUrl:"https://www.yotel.com/en/hotels/yotel-singapore"},
   {time:"Später Nachmittag",title:"Orchard Road",place:"Orchard Road Singapore",note:"Spaziergang durch Singapurs bekanntes Einkaufsviertel.",infoUrl:"https://www.visitsingapore.com/see-do-singapore/places-to-see/orchard/"},
   {time:"Abendessen",title:"Komyuniti im YOTEL",place:"Komyuniti YOTEL Singapore Orchard Road",note:"Bequeme Option nach der Anreise; Speisekarte und Öffnungszeiten prüfen.",infoUrl:"https://www.yotel.com/en/hotels/yotel-singapore-orchard-road"},
   {title:"Alternative: Merci Marcel",place:"Merci Marcel Orchard Singapore",note:"Alternative für ein entspanntes Abendessen; Verfügbarkeit und Preise prüfen.",infoUrl:"https://www.mercimarcelgroup.com/"}
