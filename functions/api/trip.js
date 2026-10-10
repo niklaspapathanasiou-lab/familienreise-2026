@@ -1,62 +1,46 @@
-import {json,requireSession} from "../_shared.js";
-
-
+import { json, requireSession } from "../_shared.js";
 
 const days = [
-
-
- {city:"Singapur",dateLabel:"So., 18. Oktober 2026",title:"Ankunft & entspannt ankommen",status:"Ankunftstag",description:"Ankunftszeiten und Transfer ergänzen. Nach dem Check-in die Umgebung des Hotels erkunden und den Abend flexibel halten.",items:[{title:"YOTEL Singapore Orchard Road",place:"YOTEL Singapore Orchard Road",note:"Unser Hotel und Ausgangspunkt"},{title:"Orchard Road",place:"Orchard Road Singapore",note:"Spaziergang und unkompliziertes Abendessen"}]},
-
-
- {city:"Singapur",dateLabel:"Mo., 19. Oktober 2026",title:"Marina Bay & Gardens by the Bay",status:"Vorschlag",description:"Klassischer erster Erkundungstag. Öffnungszeiten und Tickets für die Gewächshäuser vorab prüfen.",items:[{title:"Merlion Park",place:"Merlion Park Singapore"},{title:"Gardens by the Bay",place:"Gardens by the Bay Singapore",note:"Tickets für Flower Dome / Cloud Forest prüfen"},{title:"Marina Bay Sands Waterfront",place:"Marina Bay Sands waterfront Singapore",note:"Abendspaziergang"}]},
-
-
- {city:"Singapur",dateLabel:"Di., 20. Oktober 2026",title:"Stadtviertel & teamLab",status:"Vorschlag",description:"teamLab ist als Programmpunkt vorgesehen; bitte den konkreten Veranstaltungsort und verfügbare Eintrittszeiten vorab bestätigen.",items:[{title:"teamLab",place:"teamLab Singapore",note:"Veranstaltungsort und Tickets bestätigen"},{title:"Kampong Glam",place:"Kampong Glam Singapore",note:"Haji Lane und Sultan Mosque von außen"},{title:"Abendessen in Chinatown",place:"Chinatown Singapore restaurants",note:"Budget ca. 30–60 € pro Person"}]},
-
-
- {city:"Singapur",dateLabel:"Mi., 21. Oktober 2026",title:"Sentosa optional & Abflug",status:"Abflug 18:15",description:"Nur einen kurzen Ausflug einplanen und ausreichend Zeit für Gepäckabholung und Transfer zum Flughafen lassen. Thai Airways TG408: Abflug 18:15; Terminal und Check-in-Zeit prüfen.",items:[{title:"Sentosa (optional)",place:"Sentosa Island Singapore",note:"Nur wenn es zeitlich passt: Cable Car, Skyline Luge oder Palawan Beach"},{title:"Changi Airport",place:"Singapore Changi Airport",note:"Rückkehr mit großzügigem Zeitpuffer"}]},
-
-
- {city:"Bangkok",dateLabel:"22. Oktober 2026",title:"Bangkok – Tagesplan ergänzen",status:"Noch zu planen",description:"Tragt hier nach Bestätigung eurer Ankunft, Unterkunft und Transferzeit die Tagesplanung ein.",items:[{title:"Unterkunft",place:"Bangkok hotel",note:"Hoteladresse ergänzen"},{title:"Aktivität auswählen",place:"Bangkok Thailand attractions",note:"Vorschlag und Uhrzeit ergänzen"}]},
-
-
- {city:"Bangkok",dateLabel:"23. Oktober 2026",title:"Tempel, Fluss oder Shopping",status:"Noch zu planen",description:"Den Tag nach Wetter, Öffnungszeiten und euren Interessen planen.",items:[{title:"Bangkok Sehenswürdigkeiten",place:"Bangkok Thailand attractions"},{title:"Restaurants",place:"Restaurants near central Bangkok",note:"Reservierung und Budget prüfen"}]},
-
-
- {city:"Bangkok",dateLabel:"24. Oktober 2026",title:"Bangkok – flexibel planen",status:"Noch zu planen",description:"Platz für Shopping, einen Ausflug oder freie Zeit.",items:[{title:"Einkaufszentrum",place:"modern shopping mall Bangkok"},{title:"Abendessen",place:"family friendly restaurants Bangkok"}]},
-
-
- {city:"Chiang Mai",dateLabel:"25. Oktober 2026",title:"Ankunft & Altstadt",status:"Noch zu planen",description:"Reisedatum und Transfer von Bangkok nach Chiang Mai bitte bestätigen. Den ersten Tag entspannt halten.",items:[{title:"Unterkunft",place:"Chiang Mai hotel",note:"Hoteladresse ergänzen"},{title:"Altstadt",place:"Chiang Mai Old City"}]},
-
-
- {city:"Chiang Mai",dateLabel:"26. Oktober 2026",title:"Tempel & Altstadt",status:"Noch zu planen",description:"Öffnungszeiten und respektvolle Kleidung für Tempelbesuche beachten.",items:[{title:"Wat Chedi Luang",place:"Wat Chedi Luang Chiang Mai"},{title:"Wat Phra Singh",place:"Wat Phra Singh Chiang Mai"},{title:"Abendmarkt",place:"Chiang Mai night market"}]},
-
-
- {city:"Chiang Mai",dateLabel:"27. Oktober 2026",title:"Ausflugstag",status:"Noch zu planen",description:"Ausflug erst nach Prüfung von Dauer, Transport und Tierwohl-Aspekten buchen.",items:[{title:"Doi Suthep",place:"Wat Phra That Doi Suthep"},{title:"Ausflugsoptionen",place:"Chiang Mai day trips",note:"Tour und Rückfahrt prüfen"}]},
-
-
- {city:"Chiang Mai",dateLabel:"28. Oktober 2026",title:"Freier Tag & lokale Küche",status:"Noch zu planen",description:"Zeit für Cafés, Märkte, Kochkurs oder einen entspannten Tag.",items:[{title:"Lokaler Markt",place:"Warorot Market Chiang Mai"},{title:"Restaurants",place:"Northern Thai food Chiang Mai"}]},
-
-
- {city:"Chiang Mai",dateLabel:"29. Oktober 2026",title:"Chiang Mai – Wünsche der Familie",status:"Noch zu planen",description:"Hier gemeinsame Vorschläge und Kommentare sammeln.",items:[{title:"Aktivität nach Wahl",place:"Chiang Mai attractions"}]},
-
-
- {city:"Chiang Mai",dateLabel:"30. Oktober 2026",title:"Letzter voller Tag",status:"Noch zu planen",description:"Puffer für Lieblingsorte, Einkäufe und Packen einplanen.",items:[{title:"Altstadt / Einkauf",place:"Chiang Mai Old City"},{title:"Abschiedsessen",place:"family friendly restaurants Chiang Mai"}]},
-
-
- {city:"Chiang Mai",dateLabel:"31. Oktober 2026",title:"Abreise",status:"Abflugdetails ergänzen",description:"Flugnummer, Abflugzeit und Transfer zur Unterkunft ergänzen. Abfahrtszeit mit ausreichendem Puffer planen.",items:[{title:"Flughafen Chiang Mai",place:"Chiang Mai International Airport"}]}
-
-
+ {city:"Singapur",dateLabel:"So., 18. Oktober 2026",title:"Ankunft, Hotel & Orchard Road",status:"Ankunftstag · flexibel",description:"Nach Ankunft und Check-in entspannt starten. Das YOTEL liegt an der Orchard Road; je nach Ankunftszeit nur die Umgebung erkunden. Abendessen-Budget als Orientierung: 30–60 € pro Person.",items:[
+  {time:"Nach Ankunft",title:"YOTEL Singapore Orchard Road",place:"YOTEL Singapore Orchard Road",note:"Hotel und Ausgangspunkt. Transferzeit abhängig von der tatsächlichen Ankunft.",infoUrl:"https://www.yotel.com/en/hotels/yotel-singapore-orchard-road"},
+  {time:"Später Nachmittag",title:"Orchard Road",place:"Orchard Road Singapore",note:"Spaziergang durch Singapurs bekanntes Einkaufsviertel.",infoUrl:"https://www.visitsingapore.com/see-do-singapore/places-to-see/orchard/"},
+  {time:"Abendessen",title:"Komyuniti im YOTEL",place:"Komyuniti YOTEL Singapore Orchard Road",note:"Bequeme Option nach der Anreise; Speisekarte und Öffnungszeiten prüfen.",infoUrl:"https://www.yotel.com/en/hotels/yotel-singapore-orchard-road"},
+  {title:"Alternative: Merci Marcel",place:"Merci Marcel Orchard Singapore",note:"Alternative für ein entspanntes Abendessen; Verfügbarkeit und Preise prüfen.",infoUrl:"https://www.mercimarcelgroup.com/"}
+ ]},
+ {city:"Singapur",dateLabel:"Mo., 19. Oktober 2026",title:"Marina Bay, ArtScience Museum & Gardens by the Bay",status:"Hauptprogrammpunkt",description:"Futuristische Architektur und Gärten an einem Tag bündeln. Für Cloud Forest/Flower Dome Tickets und die aktuellen Öffnungszeiten vorab prüfen. Die kostenlose Garden Rhapsody findet laut offizieller Website regulär um 19:45 und 20:45 Uhr statt; am Reisetag erneut prüfen.",items:[
+  {time:"Vormittag",title:"Marina Bay Sands & Waterfront",place:"Marina Bay Sands Singapore",note:"Architektur und Uferpromenade; optional SkyPark Observation Deck.",infoUrl:"https://www.marinabaysands.com/"},
+  {time:"Später Vormittag",title:"ArtScience Museum",place:"ArtScience Museum Singapore",note:"Interaktive Kunst, Technologie und Ausstellungen. TeamLab Future World und Ausstellungstermine vor Besuch prüfen.",image:"https://www.marinabaysands.com/content/dam/marinabaysands/attractions/museum/artscience-museum-exterior.jpg",infoUrl:"https://www.marinabaysands.com/museum.html"},
+  {time:"Nachmittag",title:"Gardens by the Bay – Cloud Forest & Flower Dome",place:"Gardens by the Bay Cloud Forest Singapore",note:"Für beide Gewächshäuser ausreichend Zeit einplanen; Tickets separat prüfen.",image:"https://d2vbr83hnyiux1.cloudfront.net/image/975050285728/image_rkfam3t6n11mh1snkjfdpv9828/-FWEBP-Ro%3A5%2Cw%3A1440%2Ch%3A810%2Cn%3Adefault",infoUrl:"https://www.gardensbythebay.com.sg/en/attractions.html"},
+  {time:"19:45 oder 20:45",title:"Garden Rhapsody – Supertree Grove",place:"Supertree Grove Gardens by the Bay Singapore",note:"Kostenlose Licht- und Musikshow; aktuelle Spielzeiten am Besuchstag prüfen.",infoUrl:"https://www.gardensbythebay.com.sg/en/things-to-do/attractions/supertree-grove.html"}
+ ]},
+ {city:"Singapur",dateLabel:"Di., 20. Oktober 2026",title:"National Gallery, Civic District & Merlion Park",status:"Kultur & Skyline",description:"Kunst und koloniale Architektur am Vormittag, danach zu Fuß durch den Civic District und entlang der Marina Bay. Abendessen passend zum Budget von etwa 30–60 € pro Person auswählen; Reservierung und aktuelle Speisekarte prüfen.",items:[
+  {time:"Vormittag",title:"National Gallery Singapore",place:"National Gallery Singapore",note:"Kunst aus Singapur und Südostasien in den ehemaligen City Hall- und Supreme Court-Gebäuden.",image:"https://www.takenaka.co.jp/majorworks/images/21018232015_01_l.jpg",infoUrl:"https://www.nationalgallery.sg/sg/en.html"},
+  {time:"Mittagessen",title:"National Kitchen by Violet Oon",place:"National Kitchen by Violet Oon National Gallery Singapore",note:"Peranakan-Küche in der National Gallery; Öffnungszeiten, Menü und Reservierung prüfen.",infoUrl:"https://violetoon.com/"},
+  {time:"Nachmittag",title:"Merlion Park",place:"Merlion Park Singapore",note:"Klassischer Fotostopp mit Blick auf Marina Bay Sands.",infoUrl:"https://www.visitsingapore.com/see-do-singapore/places-to-see/merlion-park/"},
+  {title:"Optional: Raffles Place & Marina Bay Promenade",place:"Raffles Place Singapore",note:"Kurzer Stadtspaziergang, wenn Zeit und Wetter passen.",infoUrl:"https://www.visitsingapore.com/"},
+  {time:"Abendessen",title:"JUMBO Signatures",place:"JUMBO Signatures Singapore",note:"Option für Seafood/Chilli Crab; Preise können das Budget überschreiten – Menü und Reservierung vorher prüfen.",infoUrl:"https://www.jumboseafood.com.sg/"}
+ ]},
+ {city:"Singapur",dateLabel:"Mi., 21. Oktober 2026",title:"Orchard Road, Jewel Changi & Weiterflug",status:"Abflug 18:15 · TG408",description:"Check-out und Gepäckaufbewahrung mit dem Hotel abstimmen. Jewel Changi ist direkt am Flughafen und eignet sich für einen entspannten Vormittag. Plant genug Zeit ein, um Gepäck abzuholen, zum richtigen Terminal zu wechseln und rechtzeitig einzuchecken. Thai Airways TG408: Abflug laut euren Angaben um 18:15 Uhr; Terminal, Check-in und Flugstatus nochmals direkt bei der Airline prüfen.",items:[
+  {time:"09:00",title:"Check-out & Gepäck im YOTEL deponieren",place:"YOTEL Singapore Orchard Road",note:"Gepäckaufbewahrung vorher beim Hotel bestätigen.",infoUrl:"https://www.yotel.com/en/hotels/yotel-singapore-orchard-road"},
+  {time:"Vormittag",title:"Jewel Changi Airport – Rain Vortex",place:"Jewel Changi Airport Singapore",note:"Indoor-Wasserfall und Forest Valley; vorab Öffnungszeiten prüfen. Gepäck-/Terminal-Logistik berücksichtigen.",infoUrl:"https://www.jewelchangiairport.com/"},
+  {time:"Spätestens am frühen Nachmittag",title:"Zurück zum Hotel und Gepäck abholen",place:"YOTEL Singapore Orchard Road",note:"Großzügigen Puffer für Fahrt zum Hotel und anschließend zum Flughafen einplanen."},
+  {time:"18:15",title:"Thai Airways TG408 – Abflug",place:"Singapore Changi Airport",note:"Flugnummer und Abflugzeit laut euren Angaben. Terminal und Check-in-Zeit offiziell bestätigen.",infoUrl:"https://www.thaiairways.com/"}
+ ]},
+ {city:"Bangkok",dateLabel:"Do., 22. Oktober 2026",title:"Bangkok – Ankunft & erster Abend",status:"Noch zu planen",description:"Ankunftszeit, Hotel und Transfer bitte ergänzen. Den ersten Abend flexibel halten.",items:[{title:"Unterkunft",place:"Bangkok hotel",note:"Hoteladresse ergänzen"},{title:"Abendessen",place:"Restaurants near hotel Bangkok",note:"Nach Ankunft und Lage auswählen"}]},
+ {city:"Bangkok",dateLabel:"Fr., 23. Oktober 2026",title:"Bangkok – Tempel, Fluss oder Shopping",status:"Noch zu planen",description:"Nach Hotelstandort, Wetter und Öffnungszeiten konkretisieren.",items:[{title:"Sehenswürdigkeiten",place:"Bangkok Thailand attractions"},{title:"Einkaufszentrum",place:"modern shopping mall Bangkok"}]},
+ {city:"Bangkok",dateLabel:"Sa., 24. Oktober 2026",title:"Bangkok – flexibel planen",status:"Noch zu planen",description:"Platz für Shopping, einen Ausflug oder freie Zeit.",items:[{title:"Aktivität nach Wahl",place:"Bangkok attractions"},{title:"Abendessen",place:"family friendly restaurants Bangkok"}]},
+ {city:"Chiang Mai",dateLabel:"So., 25. Oktober 2026",title:"Chiang Mai – Ankunft & Altstadt",status:"Noch zu planen",description:"Reisedatum und Transfer von Bangkok nach Chiang Mai bitte bestätigen. Den ersten Tag entspannt halten.",items:[{title:"Unterkunft",place:"Chiang Mai hotel",note:"Hoteladresse ergänzen"},{title:"Altstadt",place:"Chiang Mai Old City"}]},
+ {city:"Chiang Mai",dateLabel:"Mo., 26. Oktober 2026",title:"Tempel & Altstadt",status:"Noch zu planen",description:"Öffnungszeiten und respektvolle Kleidung für Tempelbesuche beachten.",items:[{title:"Wat Chedi Luang",place:"Wat Chedi Luang Chiang Mai"},{title:"Wat Phra Singh",place:"Wat Phra Singh Chiang Mai"},{title:"Abendmarkt",place:"Chiang Mai night market"}]},
+ {city:"Chiang Mai",dateLabel:"Di., 27. Oktober 2026",title:"Ausflugstag",status:"Noch zu planen",description:"Ausflug erst nach Prüfung von Dauer, Transport und Tierwohl-Aspekten buchen.",items:[{title:"Doi Suthep",place:"Wat Phra That Doi Suthep"},{title:"Ausflugsoptionen",place:"Chiang Mai day trips",note:"Tour und Rückfahrt prüfen"}]},
+ {city:"Chiang Mai",dateLabel:"Mi., 28. Oktober 2026",title:"Freier Tag & lokale Küche",status:"Noch zu planen",description:"Zeit für Cafés, Märkte, Kochkurs oder einen entspannten Tag.",items:[{title:"Lokaler Markt",place:"Warorot Market Chiang Mai"},{title:"Restaurants",place:"Northern Thai food Chiang Mai"}]},
+ {city:"Chiang Mai",dateLabel:"Do., 29. Oktober 2026",title:"Chiang Mai – Wünsche der Familie",status:"Noch zu planen",description:"Hier gemeinsame Vorschläge und Kommentare sammeln.",items:[{title:"Aktivität nach Wahl",place:"Chiang Mai attractions"}]},
+ {city:"Chiang Mai",dateLabel:"Fr., 30. Oktober 2026",title:"Letzter voller Tag",status:"Noch zu planen",description:"Puffer für Lieblingsorte, Einkäufe und Packen einplanen.",items:[{title:"Altstadt / Einkauf",place:"Chiang Mai Old City"},{title:"Abschiedsessen",place:"family friendly restaurants Chiang Mai"}]},
+ {city:"Chiang Mai",dateLabel:"Sa., 31. Oktober 2026",title:"Abreise",status:"Abflugdetails ergänzen",description:"Flugnummer, Abflugzeit und Transfer zur Unterkunft ergänzen.",items:[{title:"Flughafen Chiang Mai",place:"Chiang Mai International Airport"}]}
 ];
 
+export async function onRequestGet({ request, env }) {
+  const denied = await requireSession(request, env);
+  if (denied) return denied;
 
-export async function onRequestGet({request,env}) {
-
-
- const denied=await requireSession(request,env); if(denied)return denied;
-
-
- return json({title:"Unsere Asienreise 2026",days});
-
-
+  return json({ title: "Unsere Asienreise 2026", days });
 }
